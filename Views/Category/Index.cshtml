@@ -1,0 +1,59 @@
+﻿@model List<FirstCoreProject.Models.Category>
+@{
+    ViewData["Title"] = "Index";
+}
+<h1>Index Category</h1>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<br />
+<h4>
+    <a asp-controller="Category" asp-action="Create" class="btn btn-primary">Create New Category</a>
+</h4>
+<table style=" border:1px; width:100%;">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var obj in Model)
+        {
+            <tr>
+                <td>@obj.Id</td>
+                <td>@obj.Name</td>
+                <td>
+                    <a asp-controller="Category" asp-action="Edit" asp-route-id="@obj.Id">Edit</a>
+                    <a asp-controller="Category" asp-action="Delete" asp-route-id="@obj.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<h1>Using Angulare JS</h1>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<div class="text-center" ng-app="myApp" ng-controller="myCtrl">
+    <table border="1">
+        <tr ng-repeat="x in educationOptions">
+            <td>{{ x.label }}</td>
+            <td>{{ x.value }}</td>
+        </tr>
+    </table>
+</div>
+<script>
+    var app=angular.module('myApp',[]);
+    app.controller('myCtrl',function($scope){
+    $scope.educationOptions = [{
+        'label': 'Jr.High',
+        'value': 'Jr.High'
+         }, {
+        'label': 'HighSchool',
+        'value': 'HighSchool'
+         }, {
+        'label': 'College',
+        'value': 'College'
+        }];
+                });
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
