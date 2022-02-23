@@ -12,7 +12,8 @@ namespace FirstCoreProject.Controllers
             _logger = logger;
         }
         public IActionResult Index()
-        {  
+        {
+            int x = 10;
             return View();
         }
         public IActionResult Home()
